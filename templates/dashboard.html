@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BOOK</>REVIEW</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style media="screen">
+
+      @media (max-width:800px){
+        .display1{
+          display:none;
+        }
+        body{
+          font-size:12px;
+        }
+        .headingnav{
+          font-size:20px;
+        }
+      }
+        @media(min-width:801px){
+          .display2{
+            display:none;
+          }
+          body{
+            font-size:16px;
+          }
+          .headingnav{
+            font-size:20px;
+          }
+      }
+      body{
+        background-image: url("{{url_for('static',filename = 'background7.jpeg')}}");
+        font-family:Courier New;
+        background-repeat: repeat;
+      }
+      .headingnav{
+        font-family:Montserrat;
+        background-image:radial-gradient(#FEF9C7,#026670);
+        font-weight:200;
+      }
+      .butts{
+        text-align:last;
+      }
+      .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark:visited{
+        color:#FCE181 !important;
+        border-color:#FCE181;
+      }
+     .btn-outline-dark:hover,.btn-outline-dark:focus {
+         background-color:#FCE181 !important;
+         color:#026670 !important;
+      }
+      .btn-dark, .btn-dark:active, .btn-dark:visited{
+        color:#026670 !important;
+        background-color:#9FEDD7 !important;
+        font-weight:bold;
+      }
+     .btn-dark:hover,.btn-dark:focus {
+         font-weight:bold;
+         color:#300427 !important;
+      }
+      .transbox{
+
+        opacity:0.6 !important;
+        background-color:#FCE181;
+        font-weight:bold;
+        color:#026670;
+      }
+      .active{
+        font-weight:bold;
+      }
+    </style>
+
+  </head>
+  <body>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+     </div>
+     {% endfor %}
+    <nav class="navbar navbar-expand-lg flex-column flex-md-row navbar-light bg-light headingnav ">
+      <a class="navbar-brand" href="{{url_for('home')}}" style="font-size:26px">
+        <img src="{{url_for('static',filename = 'icon.png')}}" width="45" height="45" class="d-inline-block align-top" alt="...">
+        Book< / >Review
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link active" href="{{url_for('dashboard')}}">Dashboard</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('topbooks')}}">Top Books</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url_for('topauthors')}}">Top Authors</a>
+        </li>
+      </ul>
+        <ul class="navbar-nav ml-md-auto"></ul>
+      <form action="{{url_for('search')}}" method="post" class="form-inline">
+        <input name ="string" class="form-control mr-sm-2" type="search" placeholder="Book Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+    <div class="container" style="padding:20px">
+      <div class="row transbox" style="margin:50px">
+        <div class="col" style="padding:20px">
+          <a role="button" href="{{url_for('favbooks')}}" class="btn btn-dark btn-lg btn-block shadow p-3 mb-5">MY FAVOURITE BOOKIES</a>
+        </div>
+      </div>
+      <div class="row transbox" style="margin:50px">
+        <div class="col" style="padding:20px">
+          <a role="button" href="{{url_for('books2read')}}" class="btn btn-dark btn-lg btn-block shadow p-3 mb-5">BOOKS TO READ</a>
+        </div>
+      </div>
+      <div class="row transbox" style="margin:50px">
+        <div class="col" style="padding:20px">
+        <a role="button" href = "{{url_for('booksread')}}" class="btn btn-dark btn-lg btn-block shadow p-3 mb-5">BOOKS I HAVE READ</a>
+        </div>
+      </div>
+      <div class="row transbox" style="margin:50px">
+        <div class="col" style="padding:20px;text-align:right;">
+          {{username}} is Reading.....
+        <a role="button" href = "{{url_for('logOut')}}" class="btn btn-dark btn-lg  shadow p-3 mb-5" style="">LOGOUT</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

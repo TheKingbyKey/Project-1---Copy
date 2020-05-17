@@ -1,0 +1,12 @@
+{% extends "template.html"%}
+{% block heading%}<h1 class="display-5 display1">BOOKS I HAVE  READ!!!</h1>
+<h1 class="display-7 display2">BOOKS READ!!!</h1> {% endblock %}
+{% block body%}
+<div class="col-8 col-sm-12" style="padding:20px;">
+  <div class="list-group">
+      {% for result in results%}
+        <a href="{{url_for('bookish',title = result)}}" class="list-group-item list-group-item-action btn-dark">{{result}}</a>
+{% endfor %}
+</div>
+
+</div>{% endblock %}

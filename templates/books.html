@@ -1,0 +1,94 @@
+{% extends "template.html"%}
+{% block heading%}<span style="font-weight:bold">{{title}}</span>{% endblock %}
+{% block body%}
+<div class="col-8 col-sm-12" style="padding:20px;">
+  <table class="table" style="background-color:#9FEDD7">
+  <tbody>
+    <tr>
+      <th scope="row">ISBN</th>
+      <td>{{isbn}}</td>
+    </tr>
+    <tr>
+      <th scope="row">AUTHOR</th>
+      <td>{{author}}</td>
+    </tr>
+    <tr>
+      <th scope="row">YEAR</th>
+      <td>{{year}}</td>
+    </tr>
+    <tr>
+      <th scope="row">AVERAGE SCORE</th>
+      <td>{{avg_score}}</td>
+    </tr>
+    <tr>
+      <th scope="row">GOODREAD AVERAGE SCORE</th>
+      <td>{{goodread_score}}</td>
+    </tr>
+    <tr>
+      <th scope="row">GOODREAD REVIEW COUNT</th>
+      <td>{{goodread_count}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="w-100"></div>
+<div class="col-8 col-sm-12" style="padding:20px;">
+  <form action="{{url_for('bookish',title = title)}}" method="post" style="background-color:#9FEDD7 padding:5px">
+  <div class="form-group">
+    <label for="rating">Mark your Stars</label>
+    <select class="form-control" id="rating" name = "rating">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="comment">Add a comment</label>
+    <textarea class="form-control" id="comment" rows="3" name = "comment"></textarea>
+  </div>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="catagory" id="Radios1" value="fav">
+  <label class="form-check-label" for="Radios1">
+    ADD TO YOUR FAV BOOKS
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="catagory" id="Radios2" value="books2read">
+  <label class="form-check-label" for="Radios2">
+    MARK TO BE READ
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="catagory" id="Radios3" value="booksread" >
+  <label class="form-check-label" for="Radios3">
+    MARK AS READ
+  </label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="catagory" id="Radios4" value="none" checked>
+<label class="form-check-label" for="Radios4">
+  NONE
+</label>
+</div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+</div>
+<div class="w-100"></div>
+<div class="col-8 col-sm-12" style="padding:20px;">
+  <span style="font-weight:bold">You Gave {{user_review[0]}} stars</span><br>
+  <span style="font-weight:bold">You Commented:</span>
+  {{user_review[1]}}
+  <hr class="my-4">
+</div>
+<div class="w-100"></div>
+{% for all_review in all_reviews %}
+<div class="col-8 col-sm-12" style="padding:20px;">
+  <span style="font-weight:bold">A USER Gave {{all_review[0]}} stars</span><br>
+  <span style="font-weight:bold">THEY Commented:</span>
+  {{all_review[1]}}
+</div>
+<div class="w-100"></div>
+{% endfor %}
+{% endblock %}

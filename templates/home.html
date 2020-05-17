@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>BOOK</>REVIEW</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style media="screen">
+
+    @media (max-width:800px){
+      .display1{
+        display:none;
+      }
+      body{
+        font-size:12px;
+      }
+      .headingnav{
+        font-size:20px;
+      }
+    }
+      @media(min-width:801px){
+        .display2{
+          display:none;
+        }
+        body{
+          font-size:16px;
+        }
+        .headingnav{
+          font-size:20px;
+        }
+    }
+    body{
+      background-image: url("{{url_for('static',filename = 'background7.jpeg')}}");
+      font-family:Courier New;
+      background-repeat: repeat;
+    }
+    .headingnav{
+      font-family:Montserrat;
+      background-image:radial-gradient(#FEF9C7,#026670);
+      font-weight:200;
+    }
+    .butts{
+      text-align:last;
+    }
+    .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark:visited{
+      color:#FCE181 !important;
+      border-color:#FCE181;
+    }
+   .btn-outline-dark:hover,.btn-outline-dark:focus {
+       background-color:#FCE181 !important;
+       color:#026670 !important;
+    }
+    .btn-dark, .btn-dark:active, .btn-dark:visited{
+      color:#FCE181 !important;
+    }
+   .btn-dark:hover,.btn-dark:focus {
+       background-color:#026670 !important;
+       color:#FCE181 !important;
+    }
+    .transbox{
+
+      opacity:0.6 !important;
+      background-color:#FCE181;
+      font-weight:bold;
+      color:#026670;
+    }
+    .active{
+      font-weight:bold;
+    }
+  </style>
+
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg flex-column flex-md-row navbar-light bg-light headingnav " >
+      <a class="navbar-brand" href="home" style="font-size:26px">
+        <img src="{{url_for('static',filename = 'icon.png')}}" width="45" height="45" class="d-inline-block align-top" alt="...">
+        Book< / >Review
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('home')}}"> Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('aboutUs')}}">About Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-md-auto"></ul>
+      <form class="form-inline">
+        <a class="btn btn-outline-dark btn-lg" href="{{url_for('logIn')}}" role="button">LOGIN</a>
+        <a class="btn btn-outline-dark btn-lg" href="{{url_for('signUp')}}" role="button">SIGNUP</a>
+      </form>
+    </nav>
+    <div class="container transbox" >
+      <div class="row justify-content-center">
+        <div class="col-8 " style="padding:20px">
+          <div class="jumbotron jumbotron-fluid shadow p-3 mb-5" style="background-color:#9FEDD7;margin:20px">
+            <div class="container-fluid">
+            <h1 class="display-5 display1">Welcome,Readers!!</h1>
+            <h1 class="display-6 display2">Hey! User</h1>
+            <p class="lead">Looking for amazing books to read next? We got you covered!</p>
+            <hr class="my-4">
+              <p>At book review we have the Amazing reviewing and Rating Syatem that lets you find the most dear books of the world. You can also leave reviews for the books you have read or are in middle of exploring.<br><br>We wish you a very Happy Journey!</p>
+              <a class="btn btn-dark btn-lg" href="{{url_for('signUp')}}" role="button">Dive In!</a>
+             </div>
+             </div>
+        </div>
+
+      </div>
+      </div>
+  </body>
+</html>
